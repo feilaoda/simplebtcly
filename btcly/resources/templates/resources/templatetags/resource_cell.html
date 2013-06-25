@@ -1,0 +1,86 @@
+{% load i18n %}
+
+<div class="pin-buttons">
+                    
+                      <p id="pin-source" class="pin-source">
+                         <a href="" target="_blank" rel="nofollow"></a>
+                      </p>
+                    
+                    <ul>          
+                           
+                            <li class="repost-button {% if repined %} reposted {% endif %}">                                
+                      <a class="button button13 white-button repost-pin" data-id="{{pin.id}}"  data-toggle="modal"  href="{% if user.is_authenticated %}#repost-pin{%else %} {% url core:login %}?next={{request.path}} {%endif%}">
+                        <em></em><span> {% trans "Repin" %}</span>
+                      </a>
+                            </li>
+
+                    <!-- 
+                            <li class="like-button">                                
+                <a class="button button13 white-button  like-pin" data-id="{{pin.id}}" data-text-like="Like" data-text-unlike="Unlike" href="{% if user.is_authenticated %} {% url pins:like-pin pin_id=pin.id %} {%else %} {% url core:login %}?next={{request.path}} {%endif%}">
+                <em></em>Like  </a>
+                            </li>  
+                -->
+                            <li class="want-button">                                
+                <a class="button button13 white-button  want-pin" data-id="{{pin.id}}" data-text-like="Want"  href="{% if user.is_authenticated %} {% url pins:want-pin pin_id=pin.id %} {%else %} {% url core:login %}?next={{request.path}} {%endif%}">
+                <em></em> Want </a>
+                            </li>  
+
+                            <li class="got-button">                                
+                <a class="button button13 white-button  got-pin" data-id="{{pin.id}}" data-text-like="Got"href="{% if user.is_authenticated %} {% url pins:got-pin pin_id=pin.id %} {%else %} {% url core:login %}?next={{request.path}} {%endif%}">
+                <em></em>Got </a>
+                            </li>   
+
+                        {% if pin.user == user %}
+                            <li class="delete-button">                                
+                <a class="button button13 white-button  delete-pin" data-id="{{pin.id}}" data-text-like="Got"href="{% if user.is_authenticated %} {% url pins:delete-pin pin_id=pin.id %} {%else %} {% url core:login %}?next={{request.path}} {%endif%}">
+                <em></em>Delete </a>
+                            </li>  
+                        {%endif%}
+
+                    </ul>
+</div>
+
+
+<div class="pin-image-holder image-link">
+    <img src="{{MEDIA_URL}}{{entity.image}}" id="pin-closeup-image" alt="Pinned Image" data-pinit="registered">
+
+    <div id="pin-info">
+        <h3>{{entity.title}}</h3>
+        {% if entity.data.director %}<span><span class="pl">Director:</span> {{ entity.data.director }}</span><br> {%endif%}
+        {% if entity.data.writer %}<span><span class="pl">Writer:</span> {{ entity.data.writer }}</span><br> {%endif%}
+        {% if entity.data.actor %}<span><span class="pl">Actor:</span> {{ entity.data.actor }}</span><br> {%endif%}
+        {% if entity.data.category %}<span><span class="pl">Category</span>: {{entity.data.category}}</span><br> {%endif%}
+        {% if entity.data.country %}<span class="pl">Country:</span> {{entity.data.country}}<br> {%endif%}
+        {% if entity.data.language %}<span class="pl">Language:</span> {{entity.data.language}}<br> {%endif%}
+        {% if entity.data.release_date %}<span class="pl">ReleaseDate:</span> {{entity.data.release_date}}<br> {%endif%}
+        {% if entity.data.runtime %}<span class="pl">RunTime:</span> {{entity.data.runtime}}<br> {%endif%}
+        {% if entity.data.alias %}<span class="pl">Alias:</span> {{entity.data.alias}}<br> {%endif%}
+        {% if entity.data.imdb_id %}<span class="pl">IMDb:</span> <a href="{{entity.data.imdb_url}}" target="_blank" rel="nofollow">{{entity.data.imdb_id}}</a><br>{%endif%}
+    </div>
+    <!--<div class="pin-rating">
+        <div class="rating_wrap clearbox" rel="v:rating">
+        <p class="rating_self clearfix" typeof="v:Rating">
+            <span class="ll bigstar35"></span>
+            <strong class="ll rating_num" property="v:average">6.6</strong>
+            <span property="v:best" content="10.0"></span>
+        </p>
+        <p class="rating_self font_normal">(<a href="collections"><span property="v:votes">2639</span>人评价</a>)</p>
+        <span class="stars5 starstop" title="力荐"></span><div class="power" style="width:6px"></div>
+        6.1%<br>
+                <span class="stars4 starstop" title="推荐"></span><div class="power" style="width:31px"></div>
+        28.8%<br>
+                <span class="stars3 starstop" title="还行"></span><div class="power" style="width:59px"></div>
+        55.6%<br>
+                <span class="stars2 starstop" title="较差"></span><div class="power" style="width:9px"></div>
+        8.4%<br>
+                <span class="stars1 starstop" title="很差"></span><div class="power" style="width:1px"></div>
+        1.2%<br>
+        </div>
+    </div>
+    -->
+
+</div>
+
+<div class="pin-caption">
+    <p class="description"> {{ entity.data.content }}</p>
+</div>

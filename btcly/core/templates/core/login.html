@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% load bootstrap_field %}
+{% load i18n %}
+
+{% block title %}Login{% endblock %}
+
+{% block yield %}
+    <div class="container">
+        <div class="row well">
+            <div id="form" class="width6">
+                <h1>{% trans "Login" %}</h1>
+                <form action="" method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% bootstrap_field field %}
+                    {% endfor %}
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+                        <a href="{% url core:home %}" ><button type="button" class="btn">{% trans "Cancel" %}</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

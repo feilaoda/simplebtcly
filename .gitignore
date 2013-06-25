@@ -1,0 +1,13 @@
+/bin/
+/lib/
+/include/
+/local
+/src/
+/build/
+/pip-log.txt
+/development.db
+/media/
+/static/
+/upload/
+*.pyc
+.DS_Store
