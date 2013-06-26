@@ -8,7 +8,7 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
     url(r'^resource/', include('btcly.resources.urls', namespace='resources')),
     url(r'', include('btcly.core.urls', namespace='core')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
