@@ -1,4 +1,3 @@
-{% load compress %}
 {% load i18n %}
 
 <!DOCTYPE html>
@@ -6,9 +5,7 @@
     <head>
         <title>{{ site_name }} - {% block title %}{% endblock %}</title>
 
-        {% compress css %}
             <link rel="stylesheet" href="/static/vendor/bootstrap/2.0.3/css/bootstrap.min.css">
-        {% endcompress %}
 
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
       -->

@@ -29,7 +29,7 @@ STATIC_URL = '/static/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    #'compressor.finders.CompressorFinder',
 )
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -53,7 +53,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "btcly.core.context_processors.template_settings",
 )
 
-COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
+#COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
 ROOT_URLCONF = 'btcly.urls'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
@@ -74,7 +74,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 #    'south',
-    'compressor',
+#    'compressor',
 #    'taggit',
     'btcly.core',
     'btcly.home',
