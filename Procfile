@@ -1,4 +1,4 @@
-web: gunicorn wsgi.py
+web: gunicorn btcly.wsgi
 
 #web:          bundle exec rails server -p $PORT
 #worker:       bundle exec rake resque:work QUEUE=*
