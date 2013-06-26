@@ -1,19 +1,38 @@
-angular.module('project', [remoteResource]).
-    config(function($routeProvider) {
-        $routeProvider.
-        when('/', {controller:HomeCtrl, templateUrl:'/static/html/home.html'}).
-        when('/resource/:resourceId', {controller:ResourceCtrl, templateUrl:'/static/html/show_resource.html'}).
-        otherwise({redirectTo:'/'});
-    });
+angular.module('btcly', ['mongolab']).
+  config(function($routeProvider) {
+    $routeProvider.
+      when('/', {controller:HomeCtrl, templateUrl:'/static/html/home.tmpl'}).
+      when('/resource/:resourceId', {controller:ShowResourceCtrl, templateUrl:'/static/html/show_resource.tmpl'}).
+      otherwise({redirectTo:'/'});
+  });
  
-
-angular.module('remoteResource', ['ngResource']).
-    factory('Resource', function($resource) {
-        var Resource = $resource('https://api.mongolab.com/api/1/databases' +
-        '/btcly/collections/resources/:id',
-        { apiKey: 'bX5BE5VaiHJH0NMqsaxBQAEiPKHJQ86K' }, 
-        { update: { method: 'GET' } }
-        );
-        return Resource;
+ 
+function HomeCtrl($scope, RemoteResource) {
+  $scope.title = "btcly";
+  $scope.projects = RemoteResource.query();
+}
+ 
+function ShowResourceCtrl($scope, $location, $routeParams, RemoteResource) {
+  var self = this;
+ 
+  RemoteResource.get({id: $routeParams.resourceId}, function(remoteResource) {
+    self.original = remoteResource;
+    $scope.remoteResource = new RemoteResource(self.original);
+  });
+ 
+  $scope.isClean = function() {
+    return angular.equals(self.original, $scope.remoteResource);
+  }
+ 
+  $scope.destroy = function() {
+    self.original.destroy(function() {
+      $location.path('/list');
     });
-
+  };
+ 
+  $scope.save = function() {
+    $scope.remoteResource.update(function() {
+      $location.path('/');
+    });
+  };
+}

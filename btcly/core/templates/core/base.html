@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="btcly">
     <head>
         <title>{{ site_name }} - {% block title %}{% endblock %}</title>
 
@@ -10,11 +10,14 @@
             <link rel="stylesheet" href="/static/vendor/bootstrap/2.0.3/css/bootstrap.min.css">
         {% endcompress %}
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-        <script src="/static/assets/js/btcly.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+      -->
+      {% block angularjs %}
+          
+      {% endblock %}
     </head>
 <body>
-      <div class="navbar navbar-fixed-top fixed-null">
+      <div class="navbar fixed-null">
        <div class="navbar-inner">
          <div class="container">
            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -23,9 +26,15 @@
            <a class="brand" href="/">btcly.com</a>
          </div>
        </div>
-     </div>
-      {% block content %}
-      {% endblock %}
-    <div ng-view></div>
+      </div>
+      <div class="container">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+      
+      {% verbatim %}
+      {% endverbatim %}
+
     </body>
 </html>

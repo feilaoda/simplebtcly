@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+
+{% block angularjs %}
+<script src="/static/assets/js/angular.min.js"></script>
+<script src="/static/assets/js/angular-resource.min.js"></script>
+<script src="/static/assets/js/btcly.js"></script>
+<script src="/static/assets/js/mongolab.js"></script>
+{% endblock %}
+
+{% block content %}
+<div ng-view></div>
+{% endblock %}

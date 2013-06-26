@@ -73,13 +73,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'south',
+#    'south',
     'compressor',
-    'taggit',
+#    'taggit',
+    'btcly.core',
+    'btcly.home',
     'btcly.vendor',
     'btcly.resources',
-    'btcly.core',
-   
+
 )
 
 PISTON_PAGINATION_PARAMS = ('start', 'count')
