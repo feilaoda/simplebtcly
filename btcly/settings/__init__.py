@@ -3,7 +3,8 @@ from django.contrib.messages import constants as messages
 
 
 SITE_ROOT = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
-
+ 
+PROJECT_PATH = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../')
 
 # Changes the naming on the front-end of the website.
 SITE_NAME = 'btcly.com'
@@ -23,9 +24,13 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'upload/')
 MEDIA_URL = '/upload/'
-STATIC_ROOT = os.path.join(SITE_ROOT, 'static/')
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
+
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'static'),
+)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

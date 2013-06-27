@@ -1,8 +1,8 @@
 angular.module('btcly', ['mongolab']).
   config(function($routeProvider) {
     $routeProvider.
-      when('/', {controller:HomeCtrl, templateUrl:'/static/html/home.tmpl'}).
-      when('/resource/:resourceId', {controller:ShowResourceCtrl, templateUrl:'/static/html/show_resource.tmpl'}).
+      when('/', {controller:HomeCtrl, templateUrl:'http://cdn.btcly.com/static/html/home.html'}).
+      when('/resource/:resourceId', {controller:ShowResourceCtrl, templateUrl:'http://cdn.btcly.com/static/html/show_resource.html'}).
       otherwise({redirectTo:'/'});
   });
  
