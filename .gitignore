@@ -7,7 +7,7 @@
 /pip-log.txt
 /development.db
 /media/
-/static/
 /upload/
 *.pyc
 .DS_Store
+btcly/static

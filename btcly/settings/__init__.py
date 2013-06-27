@@ -2,9 +2,9 @@ import os
 from django.contrib.messages import constants as messages
 
 
-SITE_ROOT = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
+SITE_ROOT = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../')
  
-PROJECT_PATH = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../')
+PROJECT_PATH = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
 
 # Changes the naming on the front-end of the website.
 SITE_NAME = 'btcly.com'
