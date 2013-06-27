@@ -1,7 +1,7 @@
-Django==1.5.1
-MySQL-python
+#Django==1.5.1
+#MySQL-python
 #psycopg2 
-gunicorn 
+#gunicorn 
 #dj-database-url
 #South==0.7.4
 #Pillow==1.7.7
@@ -9,5 +9,5 @@ gunicorn
 #django_compressor==1.3
 #cssmin==0.1.4
 #jsmin==2.0.2
-#-e git://github.com/hcarvalhoalves/django-taggit.git@e0f9642d7b94c8e6c0feb520d96bb6ae4d78a4d0#egg=django-taggit
+#-e git://github.com/hcarvalhoalves/django-taggit.#git@e0f9642d7b94c8e6c0feb520d96bb6ae4d78a4d0#egg=django-taggit
 
