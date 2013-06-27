@@ -1,4 +1,4 @@
-web: gunicorn btcly.wsgi
+web: python manage.py collectstatic --noinput; gunicorn btcly.wsgi --workers=2
 
 #python manage.py collectstatic --noinput; 
 #bin/gunicorn_django --workers=4 --bind=0.0.0.0:$PORT btcly/settings/production.py 
