@@ -1,4 +1,5 @@
 Django==1.5.1
+MySQL-python
 #psycopg2 
 gunicorn 
 #dj-database-url
