@@ -1,5 +1,3 @@
-
-
 class AttributeDict(dict): 
     def __getattr__(self, key):
         print "key: ", key

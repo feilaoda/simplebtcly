@@ -40,7 +40,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'btcly.core.middleware.Public',
+    # 'btcly.core.middleware.Public',
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
@@ -58,6 +58,7 @@ ROOT_URLCONF = 'btcly.urls'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
 INTERNAL_IPS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 MESSAGE_TAGS = {
     messages.WARNING: 'alert',
     messages.ERROR: 'alert alert-error',

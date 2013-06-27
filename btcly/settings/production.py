@@ -4,7 +4,7 @@ import os
 
 
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = False
 
 # TODO: I recommend using psycopg2 w/ postgres but sqlite3 is good enough.
 #DATABASES = {
@@ -15,4 +15,4 @@ TEMPLATE_DEBUG = DEBUG
 #}
 
 # TODO: Be sure to set this.
-SECRET_KEY = '!#$$.bitcoinly.com'
+SECRET_KEY = 'ed81b9655dfa220e410d911afe0385b9'
