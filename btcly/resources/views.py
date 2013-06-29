@@ -18,7 +18,7 @@ def show_resource(request, resource_id):
     if os.path.exists(filepath+"/"+filename):
         return TemplateResponse(request, filename);
     else:
-        return HttpResponseRedirect("/resource/#/resource/%s/" % (str(resource_id)))
+        return HttpResponseRedirect("/#/resource/%s/" % (str(resource_id)))
         #return TemplateResponse(request, "resources/show_resource.html");
         #raise Http404
       

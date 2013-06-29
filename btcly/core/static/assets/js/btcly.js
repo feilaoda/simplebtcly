@@ -1,4 +1,7 @@
-angular.module('btcly', ['mongolab']).
+angular.module('btcly', ['remote'], function ($compileProvider) {
+  $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|magnet|ed2k|thunder):/);
+}
+).
   config(function($routeProvider) {
     $routeProvider.
       when('/', {controller:HomeCtrl, templateUrl:'/static/html/home.html'}).
@@ -6,10 +9,12 @@ angular.module('btcly', ['mongolab']).
       otherwise({redirectTo:'/'});
   });
  
+
  
 function HomeCtrl($scope, RemoteResource) {
-  $scope.title = "btcly";
-  $scope.projects = RemoteResource.query();
+  $scope.resources = RemoteResource.query();
+  $scope.title = $scope.resources.title;
+  $scope.links = $scope.resources.links
 }
  
 function ShowResourceCtrl($scope, $location, $routeParams, RemoteResource) {
@@ -18,21 +23,6 @@ function ShowResourceCtrl($scope, $location, $routeParams, RemoteResource) {
   RemoteResource.get({id: $routeParams.resourceId}, function(remoteResource) {
     self.original = remoteResource;
     $scope.remoteResource = new RemoteResource(self.original);
+
   });
- 
-  $scope.isClean = function() {
-    return angular.equals(self.original, $scope.remoteResource);
-  }
- 
-  $scope.destroy = function() {
-    self.original.destroy(function() {
-      $location.path('/list');
-    });
-  };
- 
-  $scope.save = function() {
-    $scope.remoteResource.update(function() {
-      $location.path('/');
-    });
-  };
 }
